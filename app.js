@@ -12,7 +12,20 @@ class App{
     }
 
     middlewares(){
-        this.app.use(cors())
+        const allowedOrigins = [
+            'https://site-simbiose-frontend.vercel.app/'
+
+        ];
+
+        this.app.use(cors({
+            origin: (origin, callback) => {
+                if (!origin || allowedOrigins.includes(origin)) {
+                    callback(null, true);
+                } else {
+                    callback(new Error('Not allowed by CORS'))
+                }
+            }
+        }))
     }
 
     routes(){
