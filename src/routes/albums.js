@@ -16,7 +16,7 @@ const startBrowser = async () => {
     if (!browser) {
         browser = await puppeteer.launch({
         headless: false,
-        executablePath: '/usr/bin/chromium-browser', 
+       
         args: [
             `--no-sandbox`, 
             `--headless`, 
