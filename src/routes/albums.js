@@ -14,8 +14,9 @@ let browser;
 
 const startBrowser = async () => {
     if (!browser) {
-      browser = await puppeteer.launch({
+        browser = await puppeteer.launch({
         headless: true,
+        executablePath: '/usr/bin/google-chrome-stable', 
         args: ['--no-sandbox', '--disable-setuid-sandbox', '--disable-dev-shm-usage'], 
       });
     }
