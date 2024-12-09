@@ -1,5 +1,6 @@
+// import dotenv from 'dotenv'
 import App from './app.js'
-import dotenv from './dotenv'
+
 
 // App.listen(3001, () =>{
 //     console.log('server is running at port 3001...')

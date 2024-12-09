@@ -7,7 +7,6 @@
   "scripts": {
     "dev": "nodemon",
     "start": "node src/server.js"
-    
   },
   "author": "Lucas Prado",
   "license": "ISC",
