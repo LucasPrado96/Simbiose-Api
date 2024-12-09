@@ -13,21 +13,26 @@ let browser;
 
 
 const startBrowser = async () => {
-    if (!browser) {
+    
+      try{
+        const browserFetcher = puppeteer.createBrowserFetcher();
+        const revisionInfo = await browserFetcher.download('1095492'); 
+        console.log('Chrome baixado em:', revisionInfo.executablePath);
+
+
         browser = await puppeteer.launch({
-        headless: true,
-        executablePath: '/opt/render/.cache/puppeteer/chrome/linux-131.0.6778.69/chrome',
-        args: [
-            `--no-sandbox`, 
-            `--headless`, 
-            `--disable-gpu`, 
-            `--disable-dev-shm-usage`, 
-            '--disable-setuid-sandbox',
-            '--remote-debugging-port=9222',
-        ], 
-      });
-    }
-    return browser;
+            headless: true,
+            executablePath:  revisionInfo.executablePath,
+            args: ['--no-sandbox', '--disable-setuid-sandbox'], 
+          });
+
+          return browser;
+      } catch(err){
+        console.error('Erro ao iniciar o navegador:', err)
+        throw err;
+      }
+   
+   
   };
 
 
