@@ -15,7 +15,7 @@ let browser;
 const startBrowser = async () => {
     if (!browser) {
         browser = await puppeteer.launch({
-        headless: true,
+        headless: false,
         executablePath: '/usr/bin/chromium-browser', 
         args: [
             `--no-sandbox`, 
@@ -23,7 +23,7 @@ const startBrowser = async () => {
             `--disable-gpu`, 
             `--disable-dev-shm-usage`, 
             '--disable-setuid-sandbox',
-            
+            '--remote-debugging-port=9222',
         ], 
       });
     }
