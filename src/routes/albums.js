@@ -23,7 +23,7 @@ const startBrowser = async () => {
             `--disable-gpu`, 
             `--disable-dev-shm-usage`, 
             '--disable-setuid-sandbox',
-            '--remote-debugging-port=9222',
+            
         ], 
       });
     }
