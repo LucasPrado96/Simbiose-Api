@@ -1,5 +1,5 @@
 import express from 'express';
-
+import { execSync } from 'child_process';
 import puppeteer from 'puppeteer';
 
 const router = express.Router();
@@ -15,14 +15,17 @@ let browser;
 const startBrowser = async () => {
     
       try{
-        const browserFetcher = puppeteer.createBrowserFetcher();
-        const revisionInfo = await browserFetcher.download('1095492'); 
-        console.log('Chrome baixado em:', revisionInfo.executablePath);
+        const chromePath = path.join('/opt/render/.cache', 'chromium', 'chrome');
+
+        execSync('mkdir -p /opt/render/.cache/chromium');
+        execSync(
+            `npx puppeteer install --path /opt/render/.cache/chromium --product chrome`
+        );
 
 
-        browser = await puppeteer.launch({
+            browser = await puppeteer.launch({
             headless: true,
-            executablePath:  revisionInfo.executablePath,
+            executablePath:  chromePath,
             args: ['--no-sandbox', '--disable-setuid-sandbox'], 
           });
 
