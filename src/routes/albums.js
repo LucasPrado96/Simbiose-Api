@@ -15,8 +15,8 @@ let browser;
 const startBrowser = async () => {
     if (!browser) {
         browser = await puppeteer.launch({
-        headless: false,
-       
+        headless: true,
+        executablePath: '/opt/render/.cache/puppeteer/chrome/linux-131.0.6778.69/chrome',
         args: [
             `--no-sandbox`, 
             `--headless`, 
