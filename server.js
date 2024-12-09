@@ -7,7 +7,7 @@ import App from './app.js'
 // })
 
 // dotenv.config()
-
+App.use('/api', routes); 
 
 App.get('/', (req, res) => {
     res.send('API Working...')
