@@ -8,7 +8,13 @@ import dotenv from './dotenv'
 dotenv.config()
 
 
+App.get('/', (req, res) => {
+    res.send('API Working...')
+})
+
+
 const PORT = process.env.PORT || 8080;
 App.listen(PORT, () => {
     console.log(`API running on port ${PORT}`)
 })
+
