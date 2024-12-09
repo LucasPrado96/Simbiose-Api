@@ -6,7 +6,7 @@ import App from './app.js'
 //     console.log('server is running at port 3001...')
 // })
 
-dotenv.config()
+// dotenv.config()
 
 
 App.get('/', (req, res) => {
