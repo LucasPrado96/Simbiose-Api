@@ -1,6 +1,7 @@
 import express from 'express';
 import { execSync } from 'child_process';
 import puppeteer from 'puppeteer';
+import path from 'path';
 
 const router = express.Router();
 
