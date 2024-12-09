@@ -5,7 +5,9 @@
   "description": "Simbiose API",
   "main": "./server.js",
   "scripts": {
-    "dev": "nodemon"
+    "dev": "nodemon",
+    "start": "node src/server.js"
+    
   },
   "author": "Lucas Prado",
   "license": "ISC",
@@ -14,6 +16,7 @@
     "bandcamp-scraper": "^1.5.0",
     "cheerio": "^1.0.0",
     "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
     "express": "^4.21.1",
     "puppeteer": "23",
     "yarn": "^1.22.22"
