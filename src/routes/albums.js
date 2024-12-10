@@ -1,7 +1,9 @@
 import express from 'express';
-import { execSync } from 'child_process';
 import puppeteer from 'puppeteer';
-import path from 'path';
+import dotenv from dotenv
+
+dotenv.config
+
 
 const router = express.Router();
 
@@ -16,18 +18,13 @@ let browser;
 const startBrowser = async () => {
     
       try{
-        const chromePath = path.join('/opt/render/.cache', 'chromium', 'chrome');
-
-        execSync('mkdir -p /opt/render/.cache/chromium');
-        execSync(
-            `npx puppeteer install --path /opt/render/.cache/chromium --product chrome`
-        );
-
 
             browser = await puppeteer.launch({
             headless: true,
-            executablePath:  chromePath,
-            args: ['--no-sandbox', '--disable-setuid-sandbox'], 
+            executablePath: process.env.NODE_ENV === 'production' 
+            ? process.env.PUPPERTEER_EXECUTABLE_PATH
+            : puppeteer.executablePath(),
+            args: ['--no-sandbox', '--disable-setuid-sandbox', '--single-process', '--no-zygote'], 
           });
 
           return browser;
