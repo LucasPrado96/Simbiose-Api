@@ -5,12 +5,14 @@ ENV PUPPERTEER_SKIP_CHROMIUM_DOWNLOAD=true \
 
 
 
-WORKDIR /app
+WORKDIR /usr/src/app
 
 
 COPY package.json yarn.lock ./
 
 RUN yarn install --frozen-lockfile
+
+COPY . .
 
 EXPOSE 8080
 
