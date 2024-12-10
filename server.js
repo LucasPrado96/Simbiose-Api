@@ -14,8 +14,8 @@ App.get('/', (req, res) => {
 })
 
 
-const port = process.env.PORT || 8080;
-App.listen(port, () => {
-    console.log(`API running on port ${port}`)
+const PORT =  8080;
+App.listen(PORT, () => {
+    console.log(`API running on port ${PORT}`)
 })
 
