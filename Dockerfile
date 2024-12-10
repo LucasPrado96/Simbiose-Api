@@ -5,7 +5,7 @@ ENV PUPPERTEER_SKIP_CHROMIUM_DOWNLOAD=true \
 
 
 
-WORKDIR /usr/src/app
+WORKDIR /usr/src/server
 
 
 COPY package.json yarn.lock ./

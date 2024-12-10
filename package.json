@@ -6,7 +6,7 @@
   "main": "./server.js",
   "scripts": {
     "dev": "nodemon",
-    "start": "node app.js"
+    "start": "node server.js"
   },
   "author": "Lucas Prado",
   "license": "ISC",
